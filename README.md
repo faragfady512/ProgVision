@@ -7,14 +7,14 @@ ProgVision is an ongoing project that aims to develop a comprehensive courses we
 Backend: .NET Web API
 Frontend: React JS
 ## Design Patterns:
-CQRS Pattern
-Mediator Pattern
-Generic Repository Pattern
-Specification Pattern
-Other Practices:
-Dependency Injection
-Authentication and Authorization
-In-Memory Caching
+* CQRS Pattern
+* Mediator Pattern
+* Generic Repository Pattern
+* Specification Pattern
+* Other Practices:
+* Dependency Injection
+* Authentication and Authorization
+* In-Memory Caching
 ## Project Status
 The application is currently under development, with ongoing work on both the backend and frontend. It's designed to offer a user-friendly experience for accessing courses, implementing modern design patterns for efficient and organized development.
 
