@@ -3,10 +3,10 @@
 Overview
 ProgVision is an ongoing project that aims to develop a comprehensive courses website using .NET Web API for the backend and React JS for the frontend. The project follows best practices and implements various design patterns to enhance code maintainability and scalability.
 
-# Technologies Used
+## Technologies Used
 Backend: .NET Web API
 Frontend: React JS
-# Design Patterns:
+## Design Patterns:
 CQRS Pattern
 Mediator Pattern
 Generic Repository Pattern
