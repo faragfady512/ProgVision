@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>2e36afd8-2184-49e1-a8f4-778d9b8a3a1b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +18,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProgVision.BLL\ProgVision.BLL.csproj" />
-    <ProjectReference Include="..\ProgVision.DLL\ProgVision.DAL.csproj" />
+    <ProjectReference Include="..\ProgVision.DAL\ProgVision.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

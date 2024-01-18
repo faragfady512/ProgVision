@@ -5,20 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProgVision.DLL\ProgVision.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Students\Commands\CreateStudent\" />
     <Folder Include="Features\Students\Commands\DeleteStudent\" />
     <Folder Include="Features\Students\Commands\UpdateStudent\" />
-    <Folder Include="Features\Students\Queries\GetStudentDetails\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProgVision.DAL\ProgVision.DAL.csproj" />
   </ItemGroup>
 
 </Project>

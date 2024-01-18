@@ -31,8 +31,6 @@ namespace ProgVision.BLL.Features.Students.Queries.GetAllStudents
 
         public DateTime CreatedAt { get; set; }
 
-        public string Course_Name { get; set; }
-
         public float Student_grade { get; set; }
 
         public float Total_Right_Degree { get; set; }
