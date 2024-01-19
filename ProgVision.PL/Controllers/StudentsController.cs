@@ -22,12 +22,12 @@ namespace ProgVision.PL.Controllers
         public async Task<IActionResult> GetAllStudents()
         {
             var result = await _sender.Send(new GetAllStudentsQuery());
-            
+
             return Ok(result);
 
-
-
-
         }
+
+
+
     }
 }
