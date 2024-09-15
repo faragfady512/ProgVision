@@ -18,6 +18,9 @@ using System.Threading.Tasks;
 using ProgVision.PL.Services;
 using MediatR;
 using ProgVision.BLL.Features.Students.Queries.GetAllStudents;
+using ProgVision.BLL.Features.Students.Commands.CreateStudent;
+using System.Reflection;
+using ProgVision.BLL.Features.Students.Queries.GetStudentDetails;
 
 namespace ProgVision.PL
 {
@@ -43,7 +46,16 @@ namespace ProgVision.PL
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
+
             services.AddMediatR(typeof(GetAllStudentsQueryHandler).Assembly);
+
+            /*   services.AddMediatR(typeof(Startup)); // Make sure to include the assembly where your handlers */
+
+            services.AddTransient<IRequestHandler<CreateSudentCommand, int>, CreateStudentCommandHandler>();
+
+            //services.AddTransient<IRequestHandler<GetStudentByIdQuery, IReadOnlyList<StudentsQueryDto>>, GetStudentByIdQueryHandler>();
+
+
 
 
 
@@ -61,6 +73,9 @@ namespace ProgVision.PL
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProgVision.PL v1"));
             }
+
+            app.UseStaticFiles();
+
 
             app.UseHttpsRedirection();
 

@@ -31,6 +31,8 @@ namespace ProgVision.DAL.Entities
 
         public DateTime CreatedAt { get; set; }
 
+
+
         [JsonIgnore]
         public virtual ICollection<Revision> Revisions { get; set; }
 

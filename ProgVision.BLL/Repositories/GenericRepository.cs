@@ -30,10 +30,11 @@ namespace ProgVision.BLL.Repositories
 
 
         public void Add(T entity)
-        { 
+        {
             _context.Add(entity);
             _context.SaveChanges();
         }
+
 
 
         public void Update(T entity)

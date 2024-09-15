@@ -3,6 +3,9 @@ using ProgVision.PL.Dtos;
 using AutoMapper;
 using System.Linq;
 using ProgVision.BLL.Features.Students.Queries.GetAllStudents;
+using System;
+using ProgVision.BLL.Features.Students.Commands.CreateStudent;
+using ProgVision.BLL.Utilities;
 
 namespace ProgVision.PL.Helpers
 {
@@ -45,9 +48,18 @@ namespace ProgVision.PL.Helpers
            .ForMember(dest => dest.Collage, opt => opt.MapFrom(src => src.Collage))
            .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt))
            .ForMember(dest => dest.Student_grade, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.Grade).Average() : 0))
-           .ForMember(dest => dest.Total_Right_Degree, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.TotalRightDegree).Average():0))
+           .ForMember(dest => dest.Total_Right_Degree, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.TotalRightDegree).Average() : 0))
            .ForMember(dest => dest.Total_Wrong_Degree, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.TotalWrongDegree).Average() : 0))
            .ReverseMap();
+
+
+
+
+
+            CreateMap<CreateSudentCommand, Students>().ReverseMap();
+            //.ForMember(dest => dest.Image, opt => opt.ConvertUsing(new ConvertIFormFileToByteArray(), src => src.Image));
+
+
 
 
 

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProgVision.BLL.Features.Students.Commands.CreateStudent;
 using ProgVision.BLL.Features.Students.Queries.GetAllStudents;
 using ProgVision.BLL.Features.Students.Queries.GetStudentDetails;
 using System.Collections.Generic;
@@ -23,14 +24,7 @@ namespace ProgVision.PL.Controllers
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<StudentsQueryDto>>> GetAllStudents([FromQuery] GetAllStudentsQuery query)
         {
-<<<<<<< HEAD
-            var result = await _sender.Send(new GetAllStudentsQuery());
 
-            return Ok(result);
-
-        }
-
-=======
             var Students = await _sender.Send(query);
 
             return Ok(Students);
@@ -46,9 +40,16 @@ namespace ProgVision.PL.Controllers
 
         }
 
+        [HttpPost("StudentProfile")]
+        public async Task<IActionResult> CreateWithImage([FromForm] CreateSudentCommand command)
+        {
+            var studentId = await _sender.Send(command);
+            return Ok(new { StudentId = studentId });
+        }
 
 
->>>>>>> 76131d9934d7f032ac6c417102247dc234308d62
+
+
 
 
     }

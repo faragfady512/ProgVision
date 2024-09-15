@@ -35,8 +35,6 @@ namespace ProgVision.BLL.Features.Students.Queries.GetAllStudents
 
             var studentDtos = _mapper.Map<IReadOnlyList<StudentsQueryDto>>(students);
 
-
-
             return studentDtos;
         }
     }

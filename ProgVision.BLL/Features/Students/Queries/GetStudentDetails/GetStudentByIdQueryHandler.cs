@@ -3,6 +3,7 @@ using MediatR;
 using ProgVision.BLL.Features.Students.Queries.GetAllStudents;
 using ProgVision.BLL.Interfaces;
 using ProgVision.BLL.Specification.Students_Specification;
+using ProgVision.BLL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,8 @@ namespace ProgVision.BLL.Features.Students.Queries.GetStudentDetails
             var spec = new StudentsWithRevions(query.Id);
 
             var students = await _studentsRepo.GetAllWithSpecAsync(spec);
+
+            //ImageUtilities.ConvertByteArrayToImageUrl(students);
 
             var studentDtos = _mapper.Map<IReadOnlyList<StudentsQueryDto>>(students);
 
