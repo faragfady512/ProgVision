@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace ProgVision.BLL.Features.Students.Queries.GetAllStudents
 {
-    public class GetAllStudentsQuery : IRequest<List<StudentsQueryDto>>
+    public class GetAllStudentsQuery : IRequest<IReadOnlyList<StudentsQueryDto>>
     {
+
+        public int StudentId { get; set; }
+
+        public string StudentName { get; set; }
+
+        public string Sort { get; set; }
 
     }
 }

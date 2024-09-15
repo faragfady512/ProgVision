@@ -35,7 +35,7 @@ namespace ProgVision.PL.Helpers
 
             CreateMap<CoursesCreateDto, Teaching>()
             .ForMember(dest => dest.TrainerId, opt => opt.MapFrom(src => src.TraniersId));
-            
+
 
             CreateMap<Students, StudentsQueryDto>()
            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
@@ -43,17 +43,16 @@ namespace ProgVision.PL.Helpers
            .ForMember(dest => dest.Image, opt => opt.MapFrom(src => src.Image))
            .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
            .ForMember(dest => dest.Collage, opt => opt.MapFrom(src => src.Collage))
-           .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt)).ReverseMap();
+           .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt))
+           .ForMember(dest => dest.Student_grade, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.Grade).Average() : 0))
+           .ForMember(dest => dest.Total_Right_Degree, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.TotalRightDegree).Average():0))
+           .ForMember(dest => dest.Total_Wrong_Degree, opt => opt.MapFrom(src => src.Revisions.Any() ? src.Revisions.Select(g => g.TotalWrongDegree).Average() : 0))
+           .ReverseMap();
 
-            CreateMap<Revision, StudentsQueryDto>()
-                .ForMember(dest => dest.Student_grade, opt => opt.MapFrom(src => src.Grade))
-                .ForMember(dest => dest.Total_Right_Degree, opt => opt.MapFrom(src => src.TotalRightDegree))
-                .ForMember(dest => dest.Total_Wrong_Degree, opt => opt.MapFrom(src => src.TotalWrongDegree)).ReverseMap();
 
 
-            CreateMap<Courses, StudentsQueryDto>()
-                .ForMember(dest => dest.Course_Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt)).ReverseMap();
+
+
 
 
 
